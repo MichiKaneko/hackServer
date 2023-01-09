@@ -9,9 +9,9 @@ go run .
 ```
 
 # リクエスト
-[A] POST   /api/user/register
-[B] POST   /api/token
-[C] GET    /api/secured/ping
+1. POST   /api/user/register
+2. POST   /api/token
+3. GET    /api/secured/ping
 
 ## [A] User作成
 ```rest
