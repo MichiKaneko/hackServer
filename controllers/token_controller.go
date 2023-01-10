@@ -5,8 +5,9 @@ import (
 	"github.com/MichiKaneko/hackServer/database"
 	"github.com/MichiKaneko/hackServer/models"
 
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 type TokenRequest struct {
@@ -25,7 +26,7 @@ func GenerateToken(c *gin.Context) {
 	}
 
 	record := database.DB.Where("email = ?", request.Email).First(&user)
-	
+
 	if record.Error != nil {
 		c.JSON(400, gin.H{"error": record.Error.Error()})
 		c.Abort()
@@ -39,7 +40,6 @@ func GenerateToken(c *gin.Context) {
 		return
 	}
 
-
 	token, err := auth.GenerateJWT(user.Email, user.Name)
 	if err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})
@@ -47,5 +47,5 @@ func GenerateToken(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"token": token})
+	c.JSON(http.StatusOK, gin.H{"token": token, "user": user})
 }

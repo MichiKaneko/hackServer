@@ -3,6 +3,6 @@
 // Access a Secured API Endpoint
 GET http://{{host}}/api/users/me HTTP/1.1
 content-type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWljaGkgS2FuZWtvIiwiZW1haWwiOiJtaWthbmVrb0Bnby5jb20iLCJleHAiOjE2NzMyODA2MDB9.8osaLaucH9zqGD1vegOa8u7rws3HKpGPIXdZuJ8yCZE
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWljaGkgS2FuZWtvIiwiZW1haWwiOiJtaWthbmVrb0Bnby5jb20iLCJleHAiOjE2NzMzNDYyNTV9.qMIb0sfotTOWSswjHNL34dKaMou2cDUvdz0Ejpc4LS0
 
 ###
