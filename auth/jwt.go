@@ -48,3 +48,19 @@ func ValidateJWT(signedToken string) (err error) {
 	}
 	return
 }
+
+func GetEmailFromJWT(signedToken string) (email string, err error) {
+	token, err := jwt.ParseWithClaims(signedToken, &JWTClaim{}, func(token *jwt.Token) (interface{}, error) {
+		return []byte(jwtKey), nil
+	})
+	if err != nil {
+		return
+	}
+	claims, ok := token.Claims.(*JWTClaim)
+	if !ok || !token.Valid {
+		err = errors.New("couldn't parse claims")
+		return
+	}
+	email = claims.Email
+	return
+}

@@ -10,6 +10,7 @@ type User struct {
 	Name     string `json:"name"`
 	Email    string `json:"email" gorm:"unique"`
 	Password string `json:"password"`
+	Posts    []Post `json:"posts"`
 }
 
 func (u *User) HashPassword(password string) error {
@@ -28,3 +29,4 @@ func (u *User) CheckPassword(password string) error {
 	}
 	return nil
 }
+

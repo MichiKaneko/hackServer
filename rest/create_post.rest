@@ -1,0 +1,13 @@
+@host = localhost:8080
+
+// Generate JWT
+POST http://{{host}}/api/users/post HTTP/1.1
+content-type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWljaGkgS2FuZWtvIiwiZW1haWwiOiJtaWthbmVrb0Bnby5jb20iLCJleHAiOjE2NzMzMTIxNjl9.nUiqqH0HYCbWqs_CDIE4Mo7msFXlE99YFiTFZ7ZIt_0
+
+{
+"title": "test_title 2nd",
+"content": "This is a test content 2nd"
+}
+
+###

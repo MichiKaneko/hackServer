@@ -26,3 +26,19 @@ func Auth() gin.HandlerFunc {
 		c.Next()
 	}
 }
+
+func CurrentUser() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		tokenString := c.GetHeader("Authorization")
+
+		email, err := auth.GetEmailFromJWT(tokenString)
+		if err != nil {
+			c.JSON(401, gin.H{"error": err.Error()})
+			c.Abort()
+			return
+		}
+
+		c.Set("email", email)
+		c.Next()
+	}
+}
